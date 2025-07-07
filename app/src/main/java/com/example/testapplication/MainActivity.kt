@@ -1,6 +1,7 @@
 package com.example.testapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,12 +21,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.lifecycleScope
 import com.example.testapplication.model.TestState
 import com.example.testapplication.ui.theme.TestApplicationTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     private val testViewModel: TestViewModel by viewModels()
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -40,12 +43,19 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        testViewModel.startToUpdate()
+    }
 }
+
+
+
 
 @Composable
 fun TestScreen(viewModel: TestViewModel, modifier: Modifier = Modifier) {
     val uiState by viewModel.uiState.collectAsState()
-    
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -56,13 +66,6 @@ fun TestScreen(viewModel: TestViewModel, modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.padding(16.dp)
         )
-        
-        Button(
-            onClick = { viewModel.updateToRandomState() },
-            modifier = Modifier.padding(16.dp)
-        ) {
-            Text("Cambia Stato")
-        }
     }
 }
 
