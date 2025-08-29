@@ -11,6 +11,8 @@ jobs:
   assign-author:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository # Aggiungi questo step se l'azione non lo fa internamente
+        uses: actions/checkout@v3
       - name: 'Auto-assign PR'
         uses: kentaro-m/auto-assign-action@v2.0.0
         with:
