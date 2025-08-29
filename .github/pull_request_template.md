@@ -1,9 +1,4 @@
----
-name: 🚀 Pull Request
-about: Descrivi le modifiche e il contesto di questa pull request
-title: '[#Numero issue] | Breve titolo'
-assignees: ''
----
+### La PR deve avere questo titolo: '[#Numero issue|Ticket Jira] | Breve titolo'
 
 ## 📖 Descrizione
 
