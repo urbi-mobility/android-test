@@ -2,7 +2,7 @@ name: 'Auto Author and Reviewer Assign'
 
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, ready_for_review, reopened]
 
 permissions:
   pull-requests: write
@@ -13,3 +13,6 @@ jobs:
     steps:
       - name: 'Auto-assign PR'
         uses: kentaro-m/auto-assign-action@v2.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-file: '.github/auto-assign.yml'
