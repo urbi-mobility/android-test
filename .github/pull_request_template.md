@@ -1,4 +1,5 @@
 ### La PR deve avere questo titolo: '[#Numero issue|Ticket Jira] | Breve titolo'
+
 ## 📖 Descrizione
 
 <!-- Spiega brevemente lo scopo di queste modifiche e il problema che risolve -->
