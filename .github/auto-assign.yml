@@ -6,7 +6,8 @@ addReviewers: true
 
 # Lista dei reviewer da assegnare
 reviewers:
-  - android-dev
+  - dommy1989
+  - gaglileo
 
 # Numero di assignee da aggiungere (0 = tutti)
 numberOfAssignees: 1
