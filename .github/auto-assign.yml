@@ -6,7 +6,7 @@ addReviewers: true
 
 # Lista dei reviewer da assegnare
 reviewers:
-  - dommy1989
+  - dommy1985
   - gaglileo
 
 # Numero di assignee da aggiungere (0 = tutti)
