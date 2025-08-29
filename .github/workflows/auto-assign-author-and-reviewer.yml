@@ -1,0 +1,28 @@
+name: 'Auto Author and Reviewer Assign'
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  assign-author:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Auto-assign PR'
+        uses: pozil/auto-assign-action@v1.13.0
+        with:
+          # The GITHUB_TOKEN is a special token provided by GitHub Actions
+          # It's required for the action to make changes to your repository (like assigning users)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The configuration file path is relative to the root of your repository
+          # If your auto-assign.yml is in .github/auto-assign.yml
+          # and the action expects it at the root, you might need to adjust
+          # or the action might automatically look in .github/
+          # Check the specific action's documentation for config file location.
+          # Many actions like 'pozil/auto-assign-action' look for '.github/auto-assign.yml' by default.
+
+          # If the action requires you to explicitly point to the config file:
+          # configuration-path: '.github/auto-assign.yml' # Or whatever path the action expects

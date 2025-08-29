@@ -1,0 +1,15 @@
+# Assegna l'autore come assignee
+addAssignees: author
+
+# Aggiungi reviewer automaticamente
+addReviewers: true
+
+# Lista dei reviewer da assegnare
+reviewers:
+  - android-dev
+
+# Numero di assignee da aggiungere (0 = tutti)
+numberOfAssignees: 1
+
+# Escludi PR in draft (default: false)
+runOnDraft: false
